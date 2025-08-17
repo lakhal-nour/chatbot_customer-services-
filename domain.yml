@@ -1,0 +1,56 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - order_status
+  - reschedule
+  - inform_delivery_date
+  - inform_order_id
+  - out_of_scope
+
+  
+slots:
+  order_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+  delivery_date:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_goodbye:
+    - text: "Bye! Have a nice day."
+
+  utter_order_status:
+    - text: "I can help you with your order. Could you please provide your order ID?"
+    
+  utter_confirm_order:
+    - text: "Thanks! Your order is on the way 🚚."
+
+  utter_reschedule:
+    - text: "Sure, I can help you reschedule. What new delivery date would you like?"
+    
+  utter_confirm_reschedule:
+    - text: "Thank you! Your delivery has been rescheduled to {delivery_date} 📅."
+
+  utter_out_of_scope:
+    - text: "Sorry, I didn't understand that. Could you rephrase?"
+  
+  
+  
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_order_status
+  - utter_reschedule
+  - utter_inform_delivery_date
+  - inform_order_id
+
